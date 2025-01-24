@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/tasks";
+const API_URL = "https://todolist-using-pure-js.onrender.com/tasks";
 
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
