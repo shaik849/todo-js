@@ -31,7 +31,7 @@ const renderTasks = (tasks) => {
 
 // Add a new task
 addTaskBtn.addEventListener("click", async (event) => {
-  event.preventDefault();  // Prevent the page from refreshing
+//   event.preventDefault();  // Prevent the page from refreshing
  
   const title = taskInput.value.trim();
   if(title == ""){
