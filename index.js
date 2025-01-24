@@ -3,6 +3,8 @@ const API_URL = "https://todolist-using-pure-js.onrender.com/tasks";
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 const addTaskBtn = document.getElementById("add-task-btn");
+const error_msg = document.getElementById("task-input");
+error_msg.style.border = "1px solid #ccc";
 
 // Fetch tasks from db.json
 const fetchTasks = async () => {
@@ -36,8 +38,7 @@ addTaskBtn.addEventListener("click", async (event) => {
     const title = taskInput.value.trim();
     
     // Reset border to normal before checking the title
-    const error_msg = document.getElementById("task-input");
-    error_msg.style.border = "1px solid #ccc"; // Normal border
+ // Normal border
     
     // Check if title is empty
     if (title === "") {
