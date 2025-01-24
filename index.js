@@ -59,7 +59,7 @@ addTaskBtn.addEventListener("click", async (event) => {
 const toggleComplete = (id, completed) => {
   const title = document.getElementsByClassName(`title-${id}`)[0];  // Get the first item in the collection
   const btn = document.querySelector(`.toggle-btn-${id}`);  // Get the button for this specific task
-
+  error_msg.style.border = "1px solid #ccc"; 
   if (!title || !btn) {
     console.error('Title or button element not found.');
     return;
@@ -104,6 +104,7 @@ const updateTaskCompletion = async (id, completed) => {
 // Edit task
 const editTask = async (id) => {
   try {
+    error_msg.style.border = "1px solid #ccc"; 
     const newTaskName = prompt("Enter task name").trim();
     if (newTaskName === "") {
       return;
