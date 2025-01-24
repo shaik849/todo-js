@@ -31,23 +31,29 @@ const renderTasks = (tasks) => {
 
 // Add a new task
 addTaskBtn.addEventListener("click", async (event) => {
-//   event.preventDefault();  // Prevent the page from refreshing
- 
-  const title = taskInput.value.trim();
-  if(title == ""){
-   const error_msg = document.getElementById("task-input");
-   error_msg.style.border = "2px solid red"
-  }
-  if (title) {
-    await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, completed: false }),
-    });
-    taskInput.value = "";
-    fetchTasks();
-  }
-});
+    event.preventDefault();  // Prevent the page from refreshing
+    
+    const title = taskInput.value.trim();
+    
+    // Reset border to normal before checking the title
+    const error_msg = document.getElementById("task-input");
+    error_msg.style.border = "1px solid #ccc"; // Normal border
+    
+    // Check if title is empty
+    if (title === "") {
+      error_msg.style.border = "2px solid red";  // Set error border if input is empty
+    } else {
+      // If title is not empty, make the POST request and reset the input field
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, completed: false }),
+      });
+      taskInput.value = "";
+      fetchTasks();
+    }
+  });
+  
 
 // Toggle task completion
 const toggleComplete = (id, completed) => {
